@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Products</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/products.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap">
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <div class="web-container">
+        <div id="product-popup" class="popup" role="dialog" aria-labelledby="popup-title" aria-modal="true" style="display: none;">
+            <div class="popup-inner">
+                <div class="popup-content">
+                    <div class="popup-header">
+                        <h2 id="popup-title">Product Title</h2>
+                        <button class="close" aria-label="Close product details popup">Close</button>
+                    </div>
+                    <div class="popup-details">
+                        <img id="popup-image" src="" alt="" aria-hidden="true">
+                        <div class="popup-text">
+                            <p id="popup-description">Product details will be displayed here.</p>
+                            <p id="popup-extra">Additional information about the product.</p>
+                            <button class="get-consultation" aria-label="Get consultation for this product">
+                                Get Consultation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-container" role="main" aria-label="Products section">
+            <div class="products-top">
+                <b class="title">Our Products</b>
+                <div class="desc">Our wide range of green technology is available for residential and commercial usage.
+                    Solutions include solar panels, EV charging stations, and smart home energy systems.</div>
+            </div>
+            <div class="product-details" id="product-details" role="list" aria-label="Product cards">
+                <!-- Dynamically generated using JavaScript -->
+            </div>
+            <div class="trustpilot-container">
+                <b class="trustpilot-title">See what people think..</b>
+                <a href="https://www.trustpilot.com" target="_blank" aria-label="Visit our Trustpilot page">
+                    <img class="trustpilot-logo-icon" alt="" src="/static/assets/buttons/trustpilot.png"
+                         aria-hidden="true">
+                </a>
+            </div>
+            <div class="faq-container" role="region" aria-label="Frequently Asked Questions">
+                <div class="faq-top">
+                    <b class="faq-title">Frequently Asked Questions</b>
+                    <div class="faq-separator" aria-hidden="true"></div>
+                    <div class="faq-desc">Meaningful information about the products before you consult</div>
+                </div>
+                <div class="question" role="listitem">
+                    <img class="question-icon" src="/static/assets/icons/question.png" alt="" aria-hidden="true">
+                    <div class="question-content">
+                        <b class="question-title">Lorem ipsum dolor sit amet.</b>
+                        <div class="question-desc">Meaningful information about the products before you consult.</div>
+                    </div>
+                </div>
+                <div class="question" role="listitem">
+                    <img class="question-icon" src="/static/assets/icons/question.png" alt="" aria-hidden="true">
+                    <div class="question-content">
+                        <b class="question-title">Lorem ipsum dolor sit amet.</b>
+                        <div class="question-desc">Meaningful information about the products before you consult.</div>
+                    </div>
+                </div>
+                <div class="question" role="listitem">
+                    <img class="question-icon" src="/static/assets/icons/question.png" alt="" aria-hidden="true">
+                    <div class="question-content">
+                        <b class="question-title">Lorem ipsum dolor sit amet.</b>
+                        <div class="question-desc">Meaningful information about the products before you consult.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for("static", filename="js/products.js") }}"></script>
+
+    {% include "footer.html" %}
+</body>
+</html>

@@ -1,0 +1,151 @@
+.footer {
+    width: 100%;
+    background-color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 17px;
+    color: #494646;
+    text-align: left;
+    padding: 20px 0;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 49px 0 80px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.rolsa-logo1 {
+    width: 295px;
+    height: 110px;
+    object-fit: cover;
+}
+
+.footer-links {
+    display: flex;
+    gap: 48px;
+    padding-top: 40px;
+}
+
+.link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: right;
+}
+
+.primary-button, .button {
+    width: 211px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #494646;
+}
+
+.primary-button {
+    color: #006837;
+    font-weight: bold;
+}
+
+.primary-button:hover, .button:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.legal-links {
+    display: flex;
+    gap: 16px;
+}
+
+.link-button {
+    text-decoration: none;
+    line-height: 150%;
+    color: #494646;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    width: calc(100% - 160px);
+    border-top: 1px solid #e6e6e6;
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        height: auto;
+        padding: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .left-section {
+        align-items: center;
+        text-align: center;
+        padding-top: 0;
+    }
+
+    .rolsa-logo1 {
+        width: 200px;
+        height: auto;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .legal-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        gap: 24px;
+        padding-top: 0;
+    }
+
+    .link-list {
+        text-align: center;
+        align-items: center;
+    }
+
+    .primary-button, .button {
+        width: auto;
+        justify-content: center;
+    }
+
+    .divider {
+        width: 100%;
+        margin: 20px 0;
+    }
+}

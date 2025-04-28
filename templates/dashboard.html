@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/shared.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <div class="web-container">
+        <div class="dash-top">
+            <b class="title">Hello, {{ user_name }}</b>
+            <a href="/logout" class="logout" role="button" aria-label="Log out"><b class="logout-title">Log Out</b></a>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Dashboard tabs">
+            <div class="tab next-appointment" role="tab" aria-label="Next Appointment">
+                <div class="tab-bg" aria-hidden="true"></div>
+                <div class="tab-top" aria-hidden="true"></div>
+                <b class="tab-title">Next Appointment</b>
+                <div class="tab-desc">
+                    {% if next_consultation %}
+                        Your next appointment is for a
+                        <a href="#" class="consultation-link" data-consultation-id=
+                                "{{ next_consultation.consultation_id }}" aria-label="View consultation details
+                                for {{ next_consultation.request_type | lower }}
+                                on {{ next_consultation.date_scheduled }}">
+                            <b class="installation">{{ next_consultation.request_type | lower }}</b>,
+                            scheduled for <b class="b">{{ next_consultation.date_scheduled }}</b>
+                        </a>
+                    {% else %}
+                        No upcoming appointments scheduled.
+                    {% endif %}
+                </div>
+            </div>
+            <div class="tab energyusage" role="tab" aria-label="Energy Usage">
+                <div class="tab-bg" aria-hidden="true"></div>
+                <div class="tab-top" aria-hidden="true"></div>
+                <b class="tab-title">Energy Usage</b>
+                <div class="tab-desc2">
+                    You used <b class="kwh" id="tab-daily-usage">n/a</b> of energy today
+                </div>
+                <a class="track-button" role="button" aria-label="View energy usage graph"><b class="track-title">
+                    View energy usage graph</b></a>
+            </div>
+            <div class="tab latest-activity" role="tab" aria-label="Latest Activity">
+                <div class="tab-bg" aria-hidden="true"></div>
+                <div class="tab-top" aria-hidden="true"></div>
+                <b class="tab-title">Latest Activity</b>
+                <div class="tab-desc">
+                    {% if last_cancellation %}
+                        The <b class="installation">{{ last_cancellation.request_type | lower }}</b> consultation
+                        for product <b class="installation">{{ last_cancellation.product_type | lower }}</b> was
+                        cancelled today at<b class="b"> {{ last_cancellation.timestamp }}</b>.
+                    {% elif latest_consultation %}
+                        Your status for a
+                        <a href="#" class="consultation-link" data-consultation-id=
+                                "{{ latest_consultation.consultation_id }}" aria-label="View consultation details
+                                for {{ latest_consultation.request_type | lower }}">
+                            <b class="installation">{{ latest_consultation.request_type | lower }}</b>
+                        </a>
+                        has been updated to <b class="b">{{ latest_consultation.status }}</b>.
+                    {% else %}
+                        No recent activity.
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="consultations">
+            <b class="consultation-title">Your Consultations</b>
+            <div class="consultation-buttons" role="group" aria-label="Consultation scheduling options">
+                <a href="/schedule-page" class="consultation-button" role="button" aria-label="Schedule a consultation">
+                    <div class="button-bg" aria-hidden="true"></div><div class="button-title-a">Schedule a consultation
+                </div></a>
+                <a class="consultation-button maintenance" role="button" aria-label="Schedule maintenance">
+                    <div class="button-bg" aria-hidden="true"></div><div class="button-title-a">Schedule maintenance
+                </div></a>
+            </div>
+        </div>
+
+        <div class="requests-table">
+            <table role="grid" aria-label="Your consultations table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Request Type</th>
+                        <th scope="col">Property Type</th>
+                        <th scope="col">Date Scheduled</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if consultations %}
+                        {% for consultation in consultations %}
+                            <tr data-consultation-id="{{ consultation.consultation_id }}">
+                                <td>{{ consultation.product_id }}</td>
+                                <td {% if consultation.request_type in ["Installation", "Maintenance"] %}class="bold"
+                                    {% endif %}>{{ consultation.request_type }}</td>
+                                <td>{{ consultation.property_type | capitalize }}</td>
+                                <td>{{ consultation.date_scheduled }}</td>
+                                <td class="status {{ consultation.status | lower | replace(" ", "-") }}">
+                                    {{ consultation.status | capitalize }}</td>
+                                <td class="action-cell">
+                                    {% if consultation.status == "approved" and consultation.request_type == "Enquiry" %}
+                                        <a href="#" class="interactive-button cancel-button" data-consultation-id=
+                                                "{{ consultation.consultation_id }}" role="button" aria-label=
+                                                "Cancel consultation">
+                                            <div class="interactive-title">Cancel</div>
+                                        </a>
+                                        <a href="#" class="interactive-button schedule-service-button"
+                                           data-consultation-id="{{ consultation.consultation_id }}"
+                                           data-service-type="installation" role="button"
+                                           aria-label="Schedule installation">
+                                            <div class="interactive-title">Schedule Installation</div>
+                                        </a>
+                                    {% elif consultation.status == "Installation Scheduled" or
+                                    consultation.status == "Maintenance Scheduled" %}
+                                        <a href="#" class="interactive-button cancel-button"
+                                           data-consultation-id="{{ consultation.consultation_id }}"
+                                           role="button" aria-label="Cancel consultation">
+                                            <div class="interactive-title">Cancel</div>
+                                        </a>
+                                    {% else %}
+                                        <a href="#" class="interactive-button cancel-button"
+                                           data-consultation-id="{{ consultation.consultation_id }}"
+                                           role="button" aria-label="Cancel consultation">
+                                            <div class="interactive-title">Cancel</div>
+                                        </a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6">No consultations scheduled yet.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="popup-container" class="popup" style="display: none;" role="dialog" aria-labelledby="popup-title" aria-modal="true">
+        <div class="popup-inner">
+            <div class="popup-header">
+                <h2 class="popup-title"></h2>
+                <button class="close" onclick="close_popup()" aria-label="Close popup">Close</button>
+            </div>
+            <form id="schedule-form" method="POST" action="/schedule-service" aria-label="Schedule service form">
+                <div class="form-list">
+                    <div class="form-item">
+                        <label for="consultation">Select Consultation</label>
+                        <select id="consultation" name="consultation_id" class="input-field" aria-required="true">
+                            <option value="" disabled selected>Select a consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label for="date">Schedule Date</label>
+                        <input type="date" id="date" name="schedule_date" class="input-field" aria-required="true">
+                    </div>
+                    <div class="form-item">
+                        <input type="hidden" id="service_type" name="service_type" value="">
+                    </div>
+                </div>
+                <div class="confirm">
+                    <button class="confirm-button input-field" type="submit" aria-label="Schedule service">
+                        Schedule</button>
+                </div>
+            </form>
+            <div class="success-message" role="alert" aria-live="polite"></div>
+            <div class="error-message" role="alert" aria-live="assertive"></div>
+        </div>
+    </div>
+
+    <div id="energy-popup-container" class="popup" style="display: none;" role="dialog" aria-labelledby="energy-popup-title"
+         aria-modal="true">
+        <div class="popup-inner">
+            <div class="popup-header">
+                <h2 class="popup-title" id="energy-popup-title">Energy Usage Overview</h2>
+                <button class="close" onclick="close_energy_popup()" aria-label="Close energy usage popup">
+                    Close
+                </button>
+            </div>
+            <div class="energy-content">
+                <div class="energy-graph">
+                    <canvas id="energy-usage-chart" aria-label="Energy usage graph"></canvas>
+                </div>
+                <div class="energy-stats" role="list" aria-label="Energy usage statistics">
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-label">Daily Usage:</span>
+                        <span class="stat-value" id="daily-usage">150 kWh</span>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-label">Weekly Usage:</span>
+                        <span class="stat-value" id="weekly-usage">1050 kWh</span>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-label">Monthly Usage:</span>
+                        <span class="stat-value" id="monthly-usage">4500 kWh</span>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-label">Average Daily Usage:</span>
+                        <span class="stat-value" id="avg-daily-usage">150 kWh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <script src="{{ url_for("static", filename="js/dashboard.js") }}"></script>
+</body>
+</html>

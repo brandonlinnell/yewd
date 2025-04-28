@@ -1,0 +1,210 @@
+.about-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: left;
+    color: #000;
+}
+
+.about-top {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.traits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 20px;
+}
+
+.trait {
+    text-align: center;
+}
+
+.trait-background {
+    position: relative;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: #8bc349;
+    height: 361px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.trait-icon {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    margin-top: 70px;
+}
+
+.trait-title {
+    font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+    line-height: 150%;
+    font-weight: 700;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.trait-desc {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 150%;
+    color: #000000;
+    margin-top: 10px;
+}
+
+.accreditations {
+    padding: 20px;
+}
+
+.accred-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.accred-icon {
+    height: 100px;
+    object-fit: cover;
+}
+
+.timeline {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.years {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.year {
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 20px;
+    position: relative;
+}
+
+.year-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: #006837;
+    width: 51px;
+    height: 51px;
+    margin-right: 10px;
+}
+
+.year-num {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 600;
+    margin-left: -58px;
+    color: #000000;
+}
+
+.year-num::before {
+    content: "20";
+    color: #ffffff;
+}
+
+.line {
+    border-top: 1px solid #757575;
+    width: 70px;
+    position: absolute;
+    right: -70px;
+    top: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .traits {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 10px;
+    }
+
+    .trait-background {
+        height: auto;
+        min-height: 250px;
+        padding: 15px;
+    }
+
+    .trait-icon {
+        width: 60px;
+        height: 60px;
+        margin-top: 20px;
+    }
+
+    .accred-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .accred-icon {
+        height: 80px;
+    }
+
+    .years {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 10px;
+    }
+
+    .year {
+        padding: 15px;
+    }
+
+    .circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .year-num {
+        margin-left: -45px;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .about-top {
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .timeline {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .trait-title {
+        font-size: clamp(1.25rem, 2vw, 1.5rem);
+    }
+
+    .trait-desc {
+        font-size: clamp(0.875rem, 1.8vw, 1rem);
+    }
+
+    .year-num {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .accred-icon {
+        height: 60px;
+    }
+}

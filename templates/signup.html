@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap">
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <div class="web-container1">
+        <img class="background-bg" alt="" src="/static/assets/images/background.png" aria-hidden="true">
+        <div class="login-container" role="main" aria-label="Sign up section">
+            <div class="section">
+                <div class="top-container">
+                    <b class="title">Sign Up</b>
+                    <div class="desc">
+                        <span>Already a member? </span>
+                        <a href="/login-page" class="switch" aria-label="Log in to your account"><b>Login here</b></a>
+                    </div>
+                </div>
+                <form action="/signup" method="POST" class="form-container" aria-label="Sign up form">
+                    <div class="email-box">
+                        <label class="email-label" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="email-input" placeholder="Enter your email"
+                               required aria-required="true">
+                    </div>
+                    <div class="password-box">
+                        <label class="password-label" for="password">Password</label>
+                        <input type="password" id="password" name="password" class="password-input"
+                               placeholder="Enter your password" required aria-required="true">
+                    </div>
+                    <div class="password-box">
+                        <label class="password-label" for="repeat_password">Repeat Password</label>
+                        <input type="password" id="repeat_password" name="repeat_password" class="password-input"
+                               placeholder="Repeat your password" required aria-required="true">
+                    </div>
+
+                    <div class="submit-login">
+                        <button type="submit" class="login-button" aria-label="Sign up for a new account">
+                            <b>Sign Up</b>
+                        </button>
+                    </div>
+
+                    {% if error %}
+                        <div class="error-message" role="alert" aria-live="assertive">{{ error }}</div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+</html>

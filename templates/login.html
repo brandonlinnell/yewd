@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Log In</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap">
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <div class="web-container1">
+        <img class="background-bg" alt="" src="/static/assets/images/background.png" aria-hidden="true">
+        <div class="login-container" role="main" aria-label="Login section">
+            <div class="section">
+                <div class="top-container">
+                    <b class="title">Log In</b>
+                    <div class="desc">
+                        <span>Not a member yet? </span>
+                        <a href="/signup-page" class="switch" aria-label="Register your account">
+                            <b>Register here</b>
+                        </a>
+                    </div>
+                </div>
+                <form action="/login" method="POST" class="form-container" aria-label="Log in form">
+                    <div class="email-box">
+                        <label class="email-label" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="email-input" placeholder="Enter your email"
+                               required aria-required="true">
+                    </div>
+                    <div class="password-box">
+                        <label class="password-label" for="password">Password</label>
+                        <input type="password" id="password" name="password" class="password-input"
+                               placeholder="Enter your password" required aria-required="true">
+                    </div>
+                    <div class="stay-logged">
+                        <label><input type="checkbox" name="stay_logged_in" class="checkbox"></label>
+                        <span class="stay-text">Keep me logged in</span>
+                    </div>
+                    <a class="forgot-password">Forgot password?</a>
+
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                    {% endif %}
+
+                    <div class="submit-login">
+                        <button type="submit" class="login-button" aria-label="Log in to account"><b>Log In</b></button>
+                    </div>
+
+                    {% if success %}
+                        <div class="success-message">{{ success }}</div>
+                    {% endif %}
+
+                    {% if error %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+</html>

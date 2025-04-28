@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Carbon Footprint</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/carbonfootprint.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap">
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="web-container">
+        <div class="carbon-footprint-container" role="main" aria-label="Carbon Footprint Calculator">
+            <section class="carbon-top">
+                <b class="title">Carbon Footprint</b>
+                <p class="desc">Our carbon footprint tool helps you calculate your carbon emissions, whether you're
+                    an individual or managing a household/business. This measures the total greenhouse gases produced
+                    by your activities in tonnes of CO₂ equivalent (CO₂e).</p>
+            </section>
+
+            <a class="cf_button reduce-button" onclick="open_popup()" role="button" aria-label="Learn how to reduce
+            your carbon footprint">How can I reduce my carbon footprint?</a>
+
+            <section class="interactive-container">
+                <b class="title">How It Works</b>
+                <div class="steps" role="list" aria-label="Steps to use the carbon footprint tool">
+                    <div class="step" role="listitem">
+                        <div class="circle-arrow-container">
+                            <div class="circle-container">
+                                <div class="circle" aria-hidden="true"></div>
+                                <img class="icon" alt="" src="/static/assets/icons/co2.png" aria-hidden="true">
+                            </div>
+                            <img class="arrow" alt="" src="/static/assets/icons/arrow.png" aria-hidden="true">
+                        </div>
+                        <div class="step-content">
+                            <p class="step-desc">Calculate your carbon footprint</p>
+                        </div>
+                    </div>
+                    <div class="step" role="listitem">
+                        <div class="circle-arrow-container">
+                            <div class="circle-container">
+                                <div class="circle" aria-hidden="true"></div>
+                                <img class="icon" alt="" src="/static/assets/icons/energy.png" aria-hidden="true">
+                            </div>
+                            <img class="arrow" alt="" src="/static/assets/icons/arrow.png" aria-hidden="true">
+                        </div>
+                        <div class="step-content">
+                            <p class="step-desc">Learn about green energy options</p>
+                        </div>
+                    </div>
+                    <div class="step" role="listitem">
+                        <div class="circle-arrow-container">
+                            <div class="circle-container">
+                                <div class="circle" aria-hidden="true"></div>
+                                <img class="icon" alt="" src="/static/assets/icons/greenenergyhouse.png"
+                                     aria-hidden="true">
+                            </div>
+                            <img class="arrow-hidden" alt="" src="/static/assets/icons/arrow.png" aria-hidden="true">
+                        </div>
+                        <div class="step-content">
+                            <p class="step-desc">Contribute to fighting<br>climate change</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="interactive-container">
+                <b class="title">Calculate Your Footprint</b>
+                <div id="input-form" style="margin: 20px 0;" role="form" aria-label="Carbon footprint input form">
+                    <div id="individual-form" style="display: none;">
+                        <input type="number" id="transport_miles" placeholder="Annual miles travelled" min="0"
+                               step="any" required aria-label="Annual miles travelled">
+                        <input type="number" id="electricity_kwh" placeholder="Monthly electricity (kWh)" min="0"
+                               step="any" required aria-label="Monthly electricity in kilowatt-hours">
+                        <input type="number" id="meat_meals" placeholder="Weekly meat meals" min="0" step="any"
+                               required aria-label="Weekly meat meals">
+
+                        <a class="cf_button submit-button" onclick="calculate_footprint('individual')" style="display: none;"
+                           role="button" aria-label="Calculate individual carbon footprint">Calculate</a>
+                        <a class="cf_button back-button" onclick="go_back()" style="display: none; background-color: #828282;" role="button"
+                           aria-label="Back to selection">Back</a>
+                    </div>
+                    <div id="commercial-form" style="display: none;">
+                        <input type="number" id="electricity_kwh_dom" placeholder="Monthly electricity (kWh)"
+                               min="0" step="any" required aria-label="Monthly electricity in kilowatt-hours for
+                               household or business">
+                        <input type="number" id="gas_kwh" placeholder="Monthly gas (kWh)" min="0" step="any"
+                               required aria-label="Monthly gas in kilowatt-hours">
+                        <input type="number" id="waste_tonnes" placeholder="Annual waste (tonnes)" min="0"
+                               step="any" required aria-label="Annual waste in tonnes">
+
+                        <a class="cf_button submit-button" onclick="calculate_footprint('commercial')"
+                           style="display: none;" role="button" aria-label="Calculate household or business carbon footprint">
+                            Calculate</a>
+                        <a class="cf_button back-button" onclick="go_back()" style="display: none; background-color: #828282;" role="button"
+                           aria-label="Back to selection">Back</a>
+                    </div>
+                    <div id="error-message" style="color: red; display: none; margin-top: 10px;" role="alert" aria-live="assertive"></div>
+                </div>
+                <div class="button-group" id="type-selection" role="group" aria-label="Select calculation type">
+                    <a class="cf_button individual" onclick="show_form('individual')" role="button"
+                       aria-label="Calculate for individual"><b>Individual</b></a>
+                    <a class="cf_button commercial" onclick="show_form('commercial')" role="button"
+                       aria-label="Calculate for household or business"><b>Household/Business</b></a>
+                </div>
+            </section>
+
+            <section class="results" id="results-section" style="display: none;" role="region"
+                     aria-label="Carbon footprint results">
+                <div class="background" aria-hidden="true"></div>
+                <b class="title">Carbon Footprint Results</b>
+                <div class="results-desc">
+                    <p>Your carbon impact is <i class="impact" id="user-impact">0</i> tonnes of <b>CO₂e</b></p>
+                    <p>Compared to <i class="impact" id="avg-impact">0</i> <span>tonnes of <b>CO₂e</b>
+                    </span> UK average</p>
+                </div>
+                <a class="cf_button white-button" onclick="open_popup()" role="button"
+                   aria-label="Tips to reduce your carbon footprint"><b>Tips to Reduce your Carbon Footprint</b></a>
+                <img class="co2-icon" alt="" src="/static/assets/icons/co2_dark.png" aria-hidden="true">
+            </section>
+        </div>
+    </div>
+    {% include "footer.html" %}
+
+    <div id="popup-container" class="popup" role="dialog" aria-labelledby="popup-title" aria-modal="true" style="display: none;">
+        <div class="popup-inner">
+            <div class="popup-content">
+                <h2 id="popup-title">Reduce Your Carbon Footprint</h2>
+                <button class="close" onclick="close_popup()" aria-label="Close popup">Close</button>
+                <div class="popup-details">
+                    <div class="popup-text">
+                        <p id="popup-description">Here are some tips to lower your carbon footprint:</p>
+                        <p id="popup-extra">• Reduce meat and dairy consumption</p>
+                        <p id="popup-extra">• Use public transport instead of driving</p>
+                        <p id="popup-extra">• Drive an electric vehicle and use our
+                            <a href="/products?product=EV%20charging%20stations" target="_blank"
+                               aria-label="EV charging stations product page">EV charging stations</a></p>
+                        <p id="popup-extra">• Use renewable energy such as
+                            <a href="/products?product=Solar%20panels" target="_blank"
+                               aria-label="Solar panels product page">solar panels</a></p>
+                        <p id="popup-extra">• Learn about
+                            <a href="/products?product=Smart%20home%20energy%20management"
+                               target="_blank" aria-label="Smart home energy management product page">
+                                smart home energy management systems</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for("static", filename="js/carbon_footprint.js") }}"></script>
+</body>
+</html>

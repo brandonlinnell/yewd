@@ -1,0 +1,211 @@
+.web-container1 {
+    max-width: 2000px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 155px;
+    padding-bottom: 155px;
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: #ef4e4e;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.success-message {
+    color: #4cda6a;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.background-bg {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.login-container {
+    position: relative;
+    width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    z-index: 2;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: #006837;
+    box-sizing: border-box;
+    z-index: 3;
+}
+
+.title {
+    position: relative;
+    margin: 2vh auto;
+    text-align: center;
+    font-size: 40px;
+}
+
+.switch {
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.desc {
+    position: relative;
+    margin: 1vh auto;
+    text-align: center;
+    font-size: 18px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.top-container {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.form-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 65px;
+}
+
+.email-box, .password-box {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    min-width: 280px;
+    margin: 1vh auto;
+    text-align: left;
+}
+
+.email-label, .password-label {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 0.5em;
+}
+
+.email-input, .password-input {
+    width: 100%;
+    height: 2.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 12px;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+.stay-logged {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    min-width: 280px;
+    margin: 1vh auto;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: 0.5em;
+    scale: 135%;
+}
+
+.stay-text {
+    font-size: 15px;
+}
+
+.forgot-password {
+    position: relative;
+    margin: 1vh auto;
+    text-align: center;
+    font-size: 15px;
+    color: #e7e7e7;
+    text-decoration: underline;
+}
+
+.submit-login {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    min-width: 280px;
+    margin: 2vh auto;
+    text-align: center;
+}
+
+.login-button {
+    width: 100%;
+    height: 2.3em;
+    background-color: #444444;
+    color: white;
+    font-size: 19px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+}
+
+@media (max-width: 900px) {
+    .login-container {
+        width: 70%;
+        min-width: 250px;
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .email-box, .password-box {
+        width: 90%;
+        min-width: 250px;
+    }
+
+    .submit-login {
+        width: 90%;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 95%;
+        min-width: 200px;
+    }
+
+    .section {
+        padding: 10px;
+    }
+
+    .email-box, .password-box {
+        width: 95%;
+        min-width: 200px;
+    }
+
+    .submit-login {
+        width: 95%;
+        min-width: 200px;
+    }
+}

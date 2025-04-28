@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/footer.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap"/>
+</head>
+<body>
+    <div class="web-container">
+        <div class="footer" role="contentinfo" aria-label="Footer">
+            <div class="divider" aria-hidden="true"></div>
+            <div class="footer-content">
+                <div class="left-section">
+                    <img class="rolsa-logo1" alt="Rolsa Logo" src="/static/assets/logos/rolsalogo.png"
+                         aria-hidden="true">
+                    <div class="social-links" role="navigation" aria-label="Social media links">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Visit our Facebook page">
+                            <img class="social-icon" alt="" src="/static/assets/buttons/facebook.png"
+                                 aria-hidden="true">
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" aria-label="Visit our LinkedIn page">
+                            <img class="social-icon" alt="" src="/static/assets/buttons/linkedin.png"
+                                 aria-hidden="true">
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" aria-label="Visit our YouTube channel">
+                            <img class="social-icon" alt="" src="/static/assets/buttons/youtube.png"
+                                 aria-hidden="true">
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Visit our Instagram page">
+                            <img class="social-icon" alt="" src="/static/assets/buttons/instagram.png"
+                                 aria-hidden="true">
+                        </a>
+                    </div>
+                    <div class="legal-links" role="navigation" aria-label="Legal links">
+                        <a href="/legal" class="link-button" aria-label="Legal information page">Legal</a>
+                        <a href="/privacy-policy" class="link-button" aria-label="Privacy policy page">
+                            Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="footer-links" role="navigation" aria-label="Footer navigation links">
+                    <div class="link-list">
+                        <a href="/" class="primary-button" aria-label="Home page">Home</a>
+                        <a href="/products" class="button" aria-label="Products page">Products</a>
+                        <a href="{{ url_for("home") }}#reviews" class="button"
+                           aria-label="Customer reviews section">Reviews</a>
+                        <a href="{{ url_for("home") }}#services" class="button"
+                           aria-label="Our services section">Our Services</a>
+                    </div>
+                    <div class="link-list">
+                        <a href="/products" class="primary-button" aria-label="Products page">Products</a>
+                        <a href="/products?product=Solar panels" class="button"
+                           aria-label="Solar panels product page">Solar panels</a>
+                        <a href="/products?product=EV charging stations" class="button"
+                           aria-label="Electric vehicle charging stations product page">Electric vehicle charging</a>
+                        <a href="/products?product=Smart home energy management" class="button"
+                           aria-label="Smart home energy management product page">Smart home energy</a>
+                    </div>
+                    <div class="link-list">
+                        <a href="/" class="primary-button" aria-label="Other links">Other</a>
+                        <a href="/schedule-page" class="button" aria-label="Contact us page">Contact Us</a>
+                        <a href="/about" class="button" aria-label="About us page">About Us</a>
+                        <a href="/dashboard" class="button" aria-label="Energy usage dashboard">Energy Usage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

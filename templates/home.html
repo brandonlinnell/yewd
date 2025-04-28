@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap">
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <div class="web-container">
+        <div class="top-container" role="region" aria-label="Hero section">
+            <img class="background-icon" alt="" src="/static/assets/images/background.png" aria-hidden="true">
+            <div class="charge-ahead">
+                <div class="content-container">
+                    <b class="title">
+                        <p class="charge-ahead-with">Charge ahead with green energy</p>
+                    </b>
+                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                </div>
+                <a href="/schedule-page" class="book-consultation" role="button" aria-label="Book a consultation">
+                    <b class="text">Book Consultation</b>
+                </a>
+            </div>
+            <div class="impact">
+                <div class="title1">Estimated impact</div>
+                <div class="desc">
+                    <span class="desc-txt">
+                        <span>Our customers have saved 5,000 metric tons of <b>CO₂</b> using our
+                            green energy products</span>
+                    </span>
+                </div>
+                <img class="icon" alt="" src="/static/assets/icons/idea.png" aria-hidden="true">
+            </div>
+        </div>
+        <div id="products" class="products-container" role="region" aria-label="Our products">
+            <b class="products-title">Our Products</b>
+            <div class="products-list" role="list" aria-label="Product cards">
+                <div class="card" role="listitem">
+                    <img class="card-image-icon" alt="" src="/static/assets/product_icons/solarpanels.png"
+                         aria-hidden="true">
+                    <div class="card-details">
+                        <b>Solar Panels</b>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+                    </div>
+                </div>
+                <div class="card" role="listitem">
+                    <img class="card-image-icon" alt="" src="/static/assets/product_icons/evcharging.png"
+                         aria-hidden="true">
+                    <div class="card-details">
+                        <b>Electric vehicle (EV) stations</b>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+                    </div>
+                </div>
+                <div class="card" role="listitem">
+                    <img class="card-image-icon" alt="" src="/static/assets/product_icons/smarthome.png"
+                         aria-hidden="true">
+                    <div class="card-details">
+                        <b>Smart home energy systems</b>
+                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+                    </div>
+                </div>
+            </div>
+            <a href="/products" class="more-details" role="button" aria-label="View more product details">
+                <b>More Details</b>
+            </a>
+        </div>
+        <div id="services" class="services-container" role="region" aria-label="Our services">
+            <div class="services-box" aria-hidden="true"></div>
+            <img class="services-icon" alt="" src="/static/assets/images/services.png" aria-hidden="true">
+            <b class="services-title">Our Services</b>
+            <div class="services-content" role="list" aria-label="Service descriptions">
+                <div class="installation-container" role="listitem">
+                    <b class="container-title">Installation</b>
+                    <div class="container-description">We offer installation assistance to our customers to
+                        provide a guaranteed positive experience.</div>
+                </div>
+                <div class="installation-container" role="listitem">
+                    <b class="container-title">Maintenance</b>
+                    <div class="container-description">We offer maintenance and support to resolve any issues
+                        with our products. Customers are given a guarantee to receive 24/7 support.</div>
+                </div>
+            </div>
+            <div class="buttons" role="group" aria-label="Service action buttons">
+                <a href="/schedule-page" class="get-consultation" role="button" aria-label="Get a consultation">
+                    <b class="button-title">Get Consultation</b>
+                </a>
+                <a href="/dashboard" class="schedule-consultation" role="button" aria-label="Schedule installation">
+                    <b style="color: black" class="button-title">Schedule Installation</b>
+                </a>
+            </div>
+        </div>
+        <div id="reviews" class="reviews-container" role="region" aria-label="Customer reviews">
+            <b class="reviews-title">Reviews</b>
+            <div class="reviews-list" role="list" aria-label="Review cards">
+                <div class="review" role="listitem">
+                    <div class="avatar">
+                        <img class="avatar-icon" alt="" src="/static/assets/buttons/user.png" aria-hidden="true">
+                        <div class="avatar-name">Name</div>
+                        <div class="avatar-desc">Description</div>
+                    </div>
+                    <div class="review-desc">“Provided excellent maintenance and support”</div>
+                </div>
+                <div class="review" role="listitem">
+                    <div class="avatar">
+                        <img class="avatar-icon" alt="" src="/static/assets/buttons/user.png" aria-hidden="true">
+                        <div class="avatar-name">Name</div>
+                        <div class="avatar-desc">Description</div>
+                    </div>
+                    <div class="review-desc">“Easy to contact and gave fast responses to my enquiries”</div>
+                </div>
+                <div class="review" role="listitem">
+                    <div class="avatar">
+                        <img class="avatar-icon" alt="" src="/static/assets/buttons/user.png" aria-hidden="true">
+                        <div class="avatar-name">Name</div>
+                        <div class="avatar-desc">Description</div>
+                    </div>
+                    <div class="review-desc">
+                        “Gave insight into my energy consumption compared to green”
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+</html>

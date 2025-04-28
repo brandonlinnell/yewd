@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>About Us</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/shared.css">
+    <link rel="stylesheet" href="/static/css/about.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap">
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <div class="web-container">
+        <div class="about-container" role="main" aria-label="About Rolsa Technologies">
+            <div class="about-top">
+                <b class="title">About Rolsa Technologies</b>
+                <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+            </div>
+            <div class="traits" role="list" aria-label="Company traits">
+                <div class="trait" role="listitem">
+                    <div class="trait-background">
+                        <img class="trait-icon" alt="" src="/static/assets/icons/reliable.png" aria-hidden="true">
+                        <b class="trait-title">Reliable & trustworthy</b>
+                        <div class="trait-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor.</div>
+                    </div>
+                </div>
+                <div class="trait" role="listitem">
+                    <div class="trait-background">
+                        <img class="trait-icon" alt="" src="/static/assets/icons/comms.png" aria-hidden="true">
+                        <b class="trait-title">Clear communication</b>
+                        <div class="trait-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor.</div>
+                    </div>
+                </div>
+                <div class="trait" role="listitem">
+                    <div class="trait-background">
+                        <img class="trait-icon" alt="" src="/static/assets/icons/accredited.png" aria-hidden="true">
+                        <b class="trait-title">Fully accredited</b>
+                        <div class="trait-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="accreditations">
+                <div class="accred-container" role="region" aria-label="Our accreditations">
+                    <div class="title-container">
+                        <b class="title">Our Accreditations</b>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor.</div>
+                    </div>
+                    <img class="accred-icon" alt="MCS accreditation logo" src="/static/assets/logos/MCS.png">
+                    <img class="accred-icon" alt="RECC accreditation logo" src="/static/assets/logos/RECC.png">
+                </div>
+            </div>
+            <div class="timeline" role="region" aria-label="Company timeline">
+                <b class="title">Company Timeline</b>
+                <div class="years" role="list">
+                    <div class="year" role="listitem">
+                        <div class="year-top">
+                            <div class="circle" aria-hidden="true"></div>
+                            <div class="year-num" aria-label="Year 2023">23</div>
+                        </div>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        <div class="line" aria-hidden="true"></div>
+                    </div>
+                    <div class="year" role="listitem">
+                        <div class="year-top">
+                            <div class="circle" aria-hidden="true"></div>
+                            <div class="year-num" aria-label="Year 2024">24</div>
+                        </div>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        <div class="line" aria-hidden="true"></div>
+                    </div>
+                    <div class="year" role="listitem">
+                        <div class="year-top">
+                            <div class="circle" aria-hidden="true"></div>
+                            <div class="year-num" aria-label="Year 2025">25</div>
+                        </div>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+</html>

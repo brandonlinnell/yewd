@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Book Consultation</title>
+    <link rel="icon" type="image/x-icon" href="/static/assets/icons/favicon.png">
+    <link rel="stylesheet" href="/static/css/shared.css">
+    <link rel="stylesheet" href="/static/css/consultation.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap">
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="web-container">
+        <div class="book-container" role="main" aria-label="Book Consultation">
+            <div class="title-container">
+                <b class="title">Book Consultation</b>
+                <div class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod tempor.
+                </div>
+            </div>
+            <div class="get-free-consultation">
+                <img class="consult-icon" alt="Consultation Icon" src="/static/assets/icons/consulticon.png"
+                     aria-hidden="true">
+                <b class="title-main">Get a free consultation</b>
+                <div class="title-desc">Schedule a consultation below</div>
+
+                <form id="consultation-form" method="POST" action="/submit-consultation"
+                      aria-label="Consultation booking form">
+                    <div class="form-list">
+                        <div class="form-item">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" placeholder="Enter your full name" class="input-field"
+                                   aria-required="true">
+                        </div>
+                        <div class="form-item">
+                            <label for="product">Product Type</label>
+                            <select id="product" class="input-field" aria-required="true">
+                                <option value="" disabled selected>Select type of product</option>
+                            </select>
+                        </div>
+                        <div class="form-item">
+                            <label for="property">Property Type</label>
+                            <select id="property" class="input-field" aria-required="true">
+                                <option value="" disabled selected>Select type of property</option>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                            </select>
+                        </div>
+                        <div class="form-item">
+                            <label for="postcode">Postcode</label>
+                            <input type="text" id="postcode" placeholder="Enter your postcode" class="input-field"
+                                   aria-required="true">
+                        </div>
+                        <div class="form-item">
+                            <label for="date">Schedule Date</label>
+                            <input type="date" id="date" class="input-field" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="confirm">
+                        <button class="confirm-button input-field" type="button"
+                                aria-label="Confirm consultation booking">Confirm Consultation</button>
+                    </div>
+                </form>
+
+                <div class="success-message" role="alert" aria-live="polite"></div>
+                <div class="error-message" role="alert" aria-live="assertive"></div>
+
+                {% if success %}
+                    <div class="success-message" role="alert" aria-live="polite">{{ success }}</div>
+                {% endif %}
+
+                {% if error %}
+                    <div class="error-message" role="alert" aria-live="assertive">{{ error }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <script src="{{ url_for("static", filename="js/book_consultation.js") }}"></script>
+</body>
+</html>

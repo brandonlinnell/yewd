@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/css/navigation.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap"/>
+</head>
+<body>
+    <div class="web-container">
+        <div class="navigation" role="navigation" aria-label="Main navigation">
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <img class="menu-icon" src="/static/assets/icons/menu.png" alt="Menu Icon" aria-hidden="true">
+            </button>
+            <div class="items">
+                <a href="/carbonfootprint" class="carbon-footprint" aria-label="Carbon Footprint page">
+                    <div class="inner-button">Carbon Footprint</div>
+                </a>
+                <a href="/products" class="products" role="button" aria-haspopup="true" aria-expanded="false"
+                   aria-label="Products menu">
+                    <div class="inner-button">Products</div>
+                    <img class="chevron-down-icon" alt="" src="/static/assets/buttons/down.png" aria-hidden="true">
+                </a>
+                <a href="/" class="home" aria-label="Home page">
+                    <div class="inner-button">Home</div>
+                </a>
+                <a href="/about" class="about-us" aria-label="About Us page">
+                    <div class="inner-button">About Us</div>
+                </a>
+                <a href="/schedule-page" class="book-button" aria-label="Book an appointment">
+                    <b class="book">Book</b>
+                </a>
+                <a href="{{ "/dashboard" if logged_in else "/signup-page" }}" class="signup-button"
+                   aria-label="{{ 'Account' if logged_in else 'Sign Up' }} page">
+                    <div class="signup">{{ "Account" if logged_in else "Sign Up" }}</div>
+                    <img class="user-icon" alt="" src="/static/assets/buttons/user.png" aria-hidden="true">
+                </a>
+            </div>
+            <a href="/" aria-label="Rolsa Home">
+                <img class="rolsa-logo" alt="Rolsa Logo" src="/static/assets/logos/rolsalogo.png">
+            </a>
+            <button class="accessibility-button" aria-label="Toggle accessibility options">
+                <img class="accessibility-icon" alt="Accessibility Icon" src="/static/assets/buttons/accessibility.png"
+                     aria-hidden="true">
+            </button>
+        </div>
+
+        <div class="our-products" role="menu" aria-label="Products dropdown">
+            <div class="title-and-desc">
+                <b class="our-products-title">Our Products</b>
+                <div class="our-products-desc">From residential to commercial, we have the green tech you need.</div>
+            </div>
+            <a class="product-button" href="/products?product=Solar panels" role="menuitem"
+               aria-label="Solar panels product page">
+                <img class="product-button-icon" alt="" src="/static/assets/icons/solarpanel.png"
+                     aria-hidden="true">
+                <b class="button-title">Solar panels</b>
+                <div class="button-desc">Reduce personal or business costs</div>
+            </a>
+            <a class="product-button-1" href="/products?product=Smart home energy management" role="menuitem"
+               aria-label="Smart home energy management product page">
+                <img class="product-button-icon-1" alt="" src="/static/assets/icons/smarthouse.png"
+                     aria-hidden="true">
+                <b class="button-title-1">Smart energy systems</b>
+                <div class="button-desc-1">Manage home energy and reduce your usage</div>
+            </a>
+            <a class="product-button-2" href="/products?product=EV charging stations" role="menuitem"
+               aria-label="EV charging stations product page">
+                <img class="product-button-icon" alt="" src="/static/assets/icons/evcar.png"
+                     aria-hidden="true">
+                <b class="button-title">EV stations</b>
+                <div class="button-desc">Charge at home or for your customers</div>
+            </a>
+        </div>
+
+        <div class="top">
+            <div class="alert" role="alert" aria-live="polite"></div>
+            <div class="use-our-carbon-container">
+                <span>
+                    <span class="use-our">Use our </span>
+                    <a href="/carbonfootprint" class="carbon-footprint-tool"
+                       aria-label="Carbon footprint calculator tool">carbon footprint tool</a>
+                    <span class="use-our"> to calculate your energy consumption for <i style="font-size: 24px;">free</i></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sienna Accessibility Widget -->
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+
+    <script src="{{ url_for("static", filename="js/navigation.js") }}"></script>
+</body>
+</html>

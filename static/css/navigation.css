@@ -1,0 +1,412 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.web-container {
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.inner-button {
+    position: absolute;
+    line-height: 150%;
+    font-weight: 600;
+}
+
+.carbon-footprint {
+    position: absolute;
+    top: 10px;
+    left: 269px;
+    width: 166px;
+    height: 30px;
+}
+
+.chevron-down-icon {
+    position: absolute;
+    left: 89px;
+    width: 29px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.products {
+    position: absolute;
+    top: 10px;
+    left: 121px;
+    width: 118px;
+    height: 32px;
+}
+
+.home {
+    position: absolute;
+    top: 9px;
+    left: 21px;
+    width: 58px;
+    height: 30px;
+}
+
+.about-us {
+    position: absolute;
+    top: 10px;
+    left: 457px;
+    width: 89px;
+    height: 30px;
+}
+
+.book {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 25.5px);
+    line-height: 150%;
+}
+
+.book-button {
+    position: absolute;
+    top: 6px;
+    left: 1290px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: #006837;
+    width: 99px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.signup {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 25px);
+    line-height: 150%;
+    font-weight: 600;
+    width: 80px;
+}
+
+.signup-button {
+    position: absolute;
+    top: 6px;
+    left: 1400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: #494646;
+    width: 138px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.accessibility-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.accessibility-button {
+    position: absolute;
+    top: 35px;
+    left: 1830px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+}
+
+.items {
+    position: absolute;
+    top: 28px;
+    left: 288px;
+    height: 52px;
+}
+
+.rolsa-logo {
+    position: absolute;
+    top: 14px;
+    left: 58px;
+    width: 201.3px;
+    height: 86px;
+    object-fit: cover;
+}
+
+.user-icon {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+}
+
+.navigation {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 108px;
+    overflow: hidden;
+    font-size: 20px;
+    color: #000;
+    font-family: "Open Sans", sans-serif;
+}
+
+button:hover, a:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.alert {
+    position: absolute;
+    width: 100%;
+    background-color: #006837;
+    height: 35px;
+    overflow: hidden;
+}
+
+.use-our, .carbon-footprint-tool {
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+}
+
+.carbon-footprint-tool {
+    text-decoration: underline;
+}
+
+.use-our-carbon-container {
+    position: absolute;
+    top: 1px;
+    left: 79px;
+    line-height: 150%;
+    white-space: nowrap;
+}
+
+.top {
+    width: 100%;
+    position: relative;
+    font-size: 20px;
+    color: #fff;
+}
+
+.our-products {
+    width: 100%;
+    background-color: #fff;
+    height: auto;
+    font-family: "Open Sans", sans-serif;
+    display: none;
+    justify-content: flex-start;
+    gap: 30px;
+    align-items: center;
+}
+
+.title-and-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 75px;
+    margin-right: 10px;
+}
+
+.our-products-title {
+    font-size: 35px;
+    color: #000;
+}
+
+.our-products-desc {
+    font-size: 17px;
+    color: #828282;
+    width: 200px;
+    height: 120px;
+    overflow-wrap: break-word;
+}
+
+.product-button, .product-button-1, .product-button-2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: #006837;
+    width: 240px;
+    height: 138px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px;
+    position: relative;
+}
+
+.product-button-icon, .product-button-icon-1 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 51px;
+    height: 51px;
+    object-fit: cover;
+}
+
+.button-title, .button-title-1 {
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 4px;
+    margin-left: 6px;
+}
+
+.button-desc, .button-desc-1 {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-left: 6px;
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 0;
+}
+
+.menu-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .items {
+        position: fixed;
+        top: 108px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 108px);
+        background-color: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 20px;
+        display: none;
+        z-index: 999;
+    }
+
+    .items.active {
+        display: flex;
+    }
+
+    .home, .products, .carbon-footprint, .about-us, .book-button, .signup-button {
+        position: static;
+        width: 100%;
+        max-width: 200px;
+        margin: 8px 0;
+        font-size: 16px;
+    }
+
+    .inner-button, .book, .signup {
+        position: static;
+        width: auto;
+    }
+
+    .chevron-down-icon {
+        position: static;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .user-icon {
+        position: static;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .book-button, .signup-button {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 36px;
+        padding-left: 10px;
+    }
+
+    .accessibility-button {
+        left: auto;
+        right: 60px;
+    }
+
+    .rolsa-logo {
+        left: 20px;
+        width: 150px;
+        height: auto;
+    }
+
+    .our-products {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .title-and-desc {
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .our-products-title {
+        font-size: 28px;
+    }
+
+    .our-products-desc {
+        font-size: 15px;
+        width: 100%;
+        height: auto;
+    }
+
+    .product-button, .product-button-1, .product-button-2 {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rolsa-logo {
+        width: 120px;
+    }
+
+    .accessibility-button {
+        right: 50px;
+    }
+
+    .menu-toggle {
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .use-our, .carbon-footprint-tool {
+        font-size: clamp(0.875rem, 2vw, 1rem);
+    }
+}

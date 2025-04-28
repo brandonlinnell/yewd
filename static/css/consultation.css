@@ -1,0 +1,165 @@
+.book-container {
+    width: 100%;
+    text-align: center;
+    color: #494646;
+}
+
+.title-container {
+    margin-left: 170px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.title {
+    color: #000000;
+}
+
+.desc {
+    color: #000000
+}
+
+.get-free-consultation {
+    background-color: #006837;
+    border-radius: 10px;
+    padding: 40px;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.consult-icon {
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    width: 355px;
+    height: 355px;
+}
+
+.title-main {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-left: 300px;
+}
+
+.title-desc {
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin-left: 300px;
+}
+
+.form-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 42%;
+    max-width: 600px;
+}
+
+.input-field {
+    width: 100%;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+label {
+    font-weight: 800;
+}
+
+.confirm {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.confirm-button {
+    padding: 10px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #000000;
+    background-color: #8BC349;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 310px;
+    width: 600px;
+    font-family: "Open Sans", "serif";
+}
+
+.confirm-button:hover {
+    background-color: #7baa3c;
+}
+
+@media screen and (max-width: 768px) {
+    .title-container {
+        margin: 30px 20px 20px;
+    }
+
+    .get-free-consultation {
+        padding: 20px;
+    }
+
+    .consult-icon {
+        position: static;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 20px;
+        display: block;
+    }
+
+    .title-main {
+        font-size: clamp(28px, 5vw, 36px);
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .title-desc {
+        font-size: clamp(16px, 3vw, 20px);
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .form-list {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .confirm-button {
+        margin-left: 0;
+        width: 100%;
+        max-width: 400px;
+        font-size: clamp(18px, 4vw, 22px);
+    }
+
+    .confirm {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .consult-icon {
+        width: 150px;
+        height: 150px;
+        z-index: -1;
+    }
+
+    .title-main {
+        font-size: clamp(24px, 4vw, 28px);
+    }
+
+    .title-desc {
+        font-size: clamp(14px, 2.5vw, 16px);
+    }
+
+    .confirm-button {
+        font-size: clamp(16px, 3.5vw, 18px);
+        max-width: 100%;
+    }
+}
